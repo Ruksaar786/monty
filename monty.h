@@ -42,7 +42,7 @@ typedef struct instruction_s
 	void (*f)(stact_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* PRIMARY INTERPRETER FUNCTIONS */
+/* MONTY BYTECODE INTERPRETER FUNCTIONS */
 void free_stack(stack_t **stack);
 int init_stack(stack_t **stack);
 int check_mode(stack_t *stack);
@@ -51,7 +51,7 @@ unsigned int token_arr_len(void);
 int run_monty(FILE *script_fd);
 void set_op_tok_error(int error_code);
 
-/* OPCODE FUNCTIONS */
+/* OPERATION CODE FUNCTIONS */
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pall(stack_t **stack, unsigned int line_number);
 void monty_pint(stack_t **stack, unsigned int line_number);
@@ -70,11 +70,11 @@ void monty_rotr(stack_t **stack, unsigned int line_number);
 void monty_stack(stack_t **stack, unsigned int line_number);
 void monty_queue(stack_t **stack, unsigned int line_number);
 
-/* CUSTOM STANDARD LIBRARY FUNCTIONS */
+/* SOME CUSTOM STANDARD LIBRARY FUNCTIONS */
 char **strtow(char *str, char *delims);
 char *get_int(int n);
 
-/* ERROR MESSAGES & ERROR CODES */
+/* MONTY PROGRAM ERROR MESSAGES & ERROR CODES */
 int usage_error(void);
 int malloc_error(void);
 int f_open_error(char *filename);
