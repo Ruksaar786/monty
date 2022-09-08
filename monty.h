@@ -9,7 +9,7 @@
 #define QUEUE 1
 #define DELIMS " \n\t\a\b"
 
-/* A GLOBAL OPCODE TOKENS */
+/* GLOBAL OPCODE TOKENS */
 extern char **op_toks;
 
 /**
@@ -19,7 +19,7 @@ extern char **op_toks;
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct stack_s
 {
@@ -34,15 +34,15 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stact_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* MONTY BYTECODE INTERPRETER FUNCTIONS */
+/* PRIMARY INTERPRETER FUNCTIONS */
 void free_stack(stack_t **stack);
 int init_stack(stack_t **stack);
 int check_mode(stack_t *stack);
@@ -51,7 +51,7 @@ unsigned int token_arr_len(void);
 int run_monty(FILE *script_fd);
 void set_op_tok_error(int error_code);
 
-/* OPERATION CODE FUNCTIONS */
+/* OPCODE FUNCTIONS */
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pall(stack_t **stack, unsigned int line_number);
 void monty_pint(stack_t **stack, unsigned int line_number);
@@ -70,11 +70,11 @@ void monty_rotr(stack_t **stack, unsigned int line_number);
 void monty_stack(stack_t **stack, unsigned int line_number);
 void monty_queue(stack_t **stack, unsigned int line_number);
 
-/* SOME CUSTOM STANDARD LIBRARY FUNCTIONS */
+/* CUSTOM STANDARD LIBRARY FUNCTIONS */
 char **strtow(char *str, char *delims);
 char *get_int(int n);
 
-/* MONTY PROGRAM ERROR MESSAGES & ERROR CODES */
+/* ERROR MESSAGES & ERROR CODES */
 int usage_error(void);
 int malloc_error(void);
 int f_open_error(char *filename);
